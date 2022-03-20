@@ -31,3 +31,5 @@ Seorang programmer tanpa "*code-sense*" dapat melihat modul yang berantakan dan 
 ## Meaningful Names
 
 Mudah untuk mengatakan bahwa nama harus mengungkapkan niat....Memilih nama yang baik membutuhkan waktu tetapi menghemat lebih dari yang dibutuhkan. Jadi perhatikanlah nama (variabel, fungsi, *method*, *class*, dll) kamu dan ubahlah ketika kamu menemukan yang lebih baik.
+
+<small>Nama Variabel</small>, fungsi, atau kelas, harus memenuhi semua pertanyaan utama. Itu harus memberitahu kamu mengapa itu ada, apa fungsinya, dan bagaimana itu digunakan. Jika sebuah nama memerlukan **komentar**, maka nama tersebut tidak mengungkapkan maksudnya. 
