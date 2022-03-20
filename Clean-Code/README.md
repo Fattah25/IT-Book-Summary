@@ -32,4 +32,8 @@ Seorang programmer tanpa "*code-sense*" dapat melihat modul yang berantakan dan 
 
 Mudah untuk mengatakan bahwa nama harus mengungkapkan niat....Memilih nama yang baik membutuhkan waktu tetapi menghemat lebih dari yang dibutuhkan. Jadi perhatikanlah nama (variabel, fungsi, *method*, *class*, dll) kamu dan ubahlah ketika kamu menemukan yang lebih baik.
 
-<small>Nama Variabel</small>, fungsi, atau kelas, harus memenuhi semua pertanyaan utama. Itu harus memberitahu kamu mengapa itu ada, apa fungsinya, dan bagaimana itu digunakan. Jika sebuah nama memerlukan **komentar**, maka nama tersebut tidak mengungkapkan maksudnya. 
+Nama Variabel, fungsi, atau kelas, harus memenuhi semua pertanyaan utama. Itu harus memberitahu kamu mengapa itu ada, apa fungsinya, dan bagaimana itu digunakan. Jika sebuah nama memerlukan **komentar**, maka nama tersebut tidak mengungkapkan maksudnya.
+
+Programmer harus menghindari meninggalkan petunjuk palsu yang mengaburkan arti kode. Tidaklah cukup untuk menambahkan deret angka atau kata-kata yang menggangu pada nama, meskipun kompilator puas. Jika nama harus berbeda, maka itu juga seharusnya berarti sesuatu yang berbeda.
+
+> Gunakanlah nama yang dapat diucapkan. Jika kamu tidak bisa mengucapkannya, kamu tidak bisa mendiskusikannya tanpa terdengar seperti orang bodoh. Ini penting karena pemrograman merupakan aktivitas sosial.
