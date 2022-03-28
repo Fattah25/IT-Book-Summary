@@ -1,7 +1,5 @@
-# IT Books Summary
+IT Books Summary
+================
 
-*Repository* yang berisikan ringkasan buku-buku IT yang mudah dipahami dan dapat diimplementasikan.
-
-# Clean Code
-
-membahas tentang cara kode yang baik.
+*Repository* yang berisikan ringkasan buku-buku IT yang mudah dipahami dan dapat
+diimplementasikan.
