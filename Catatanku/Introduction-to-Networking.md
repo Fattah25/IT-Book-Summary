@@ -380,7 +380,7 @@ masalah kedalam empat dasar *subproblem* (sub-persoalan) yang dapat dikerjakan
 secara mandiri oleh grup yang berbeda.
 
 | Application  |
-|--------------|
+| ------------ |
 | Transport    |
 | Internetwork |
 | Link         |
