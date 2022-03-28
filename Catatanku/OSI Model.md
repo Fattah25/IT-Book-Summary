@@ -1,13 +1,11 @@
 # Packet Traveling
 
-Ketika data meninggalkan komputer kita, itu dikelompokkan menjadi potongan-potongan kecil yang disebut ***Packets*/Paket**. Paket ini pada dasarnya adalah amplop kecil yang membawa data melintasi Internet. 
+[link referensi](https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/)
 
-[di sini](Introduction-to-Networking.md#packet-and-routers)
+Ketika data meninggalkan komputer kita, itu dikelompokkan menjadi potongan-potongan kecil yang disebut ***Packets*/Paket**. Paket ini pada dasarnya adalah amplop kecil yang membawa data melintasi Internet. [Lebih jelasnya di sini](Introduction-to-Networking.md#packet-and-routers)
 
 OSI Model
 =========
-
- 
 
 *Open Systems Interconnect model* (OSI Model) menjelaskan semua fungsi
 individual yang diperlukan agar Internet dapat berfungsi.
@@ -203,7 +201,7 @@ Switch
 
 *Switch* adalah *network device* yang tujuan utamanya adalah untuk memfasilitasi komunikasi dalam jaringan.
 
-*Switch* beroperasi pada Layer 2 OSI model, yang berarti *switch* hanya memeriksa ke setiap *data-gram* hingga *header* Layer 2. *Header* Layer 2 berisi informasi yang memungkinkan pengiriman *hop to hop*, seperti MAC *address* Sumber dan Tujuan.
+*Switch* beroperasi pada Layer 2 OSI *model*, yang berarti *switch* hanya memeriksa ke setiap *data-gram* hingga *header* Layer 2. *Header* Layer 2 berisi informasi yang memungkinkan pengiriman *hop to hop*, seperti MAC *address* Sumber dan Tujuan.
 
 \<gambar ada di sini\>
 
@@ -287,9 +285,37 @@ mengirimkannya ke NIC host lain. Peran ARP adalah untk membantu klien membuat L2
 *header* yang tepat, berdasarkan L3 *header*, untuk mendapatkan paket dari satu
 *hop to hop* berikutnya.
 
-Perlu juga dicatat bahwa setiap perangkat yang bermaksud meneruskan paket
-berdasarkan IP *address* (L3), juga harus memiliki kemampuan untuk mengirimkan
-paket ke hop berikutnya (L2). Dengan demikian, perangkat apa pun yang
-menggunakan IP *address* juga harus menggunakan ARP untuk mengirimkan paket
-menggunakan MAC *address*. Akibatnya, semua Layer 3 *devices* harus memelihara
-**ARP Table**.
+Perlu juga dicatat bahwa setiap perangkat yang bermaksud meneruskan paket berdasarkan IP *address* (L3), juga harus memiliki kemampuan untuk mengirimkan paket ke hop berikutnya (L2). Dengan demikian, perangkat apa pun yang menggunakan IP *address* juga harus menggunakan ARP untuk mengirimkan paket menggunakan MAC *address*. Akibatnya, semua Layer 3 *devices* harus memelihara
+***ARP Table***.
+
+## Summary
+
+Pada artikel ini, kita membahas tujuan utama dari lapisan yagn berbeda dari model OSI. Secara khusus:
+
+- OSI Layer 1 adalah media fisik (*physical medium*) yang membawa 1 dan 0 melintasi kabel / *wire*.
+
+- OSI Layer 2 bertanggung jawab atas pengiriman *hop to hop* dan menggunakan MAC *address*.
+
+- OSI Layer 3 bertanggung jawab untuk pengiriman *end to end* dan menggunakan IP *address*.
+
+- OSI Layer 4 bertanggung jawab atas pengiriman *service to service* dan menggunakan *Port Numbers*.
+
+Kita juga membahas beberapa *Key Players* yang terlibat dalam memindahkan paket melalui Internet:
+
+- Swithces memfasilitasi komunikasi *dalam* jaringan dan beroperasi di Layer 2
+
+- Routers memfasilitasi komunikasi *antar* jaringan dan beroperasi di Layer 3 
+
+- ARP menggunakan IP *address* yang diketahui untuk memecahkan  MAC *address* yang tidak diketahui.
+
+Kita juga membahas tiga tabel berbeda yang digunakan untuk menyimpan pemetaan (*mapping*) yang berbeda:
+
+- Switch menggunakan MAC *Address Table* yang merupakan pemetaan / *mapping* *Witchports* ke MAC *address* yang terhubung.
+
+- Router menggunakan *Routing Table* / Tabel perutean yang merupakan pemetaan jaringan yang diketahui (*known Networks*) ke *interface* atau alamat *hop* berikutnya (*next-hop addresses*).
+
+- Semua L3 *devices* menggunakan ARP *Table* yang merupakan pemetaan / *mapping* IP *Address* ke MAC *address*.
+
+
+
+# Host to Host Communication
