@@ -14,14 +14,7 @@ Ini adalah sebuah perangkat yang memiliki tujuh fungsi *independen* yang digabun
 
 Model OSI dibagi menjadi tujuh lapisan yang berbeda, yang masing-masing memenuhi fungsi yang sangata spesifik. Ketika digabungkan bersama, setiap fungsi berkontribusi memungkinkan komunikasi data komputer ke komputer (antar komputer).
 
-| Application  | 7   |
-| ------------ | --- |
-| Presentation | 6   |
-| Session      | 5   |
-| Transport    | 4   |
-| Network      | 3   |
-| Data Link    | 2   |
-| Physical     | 1   |
+![](D:\2-my-file-course\git\IT-Book-Summary\Catatanku\networkin%20image\packtrav-osi-layers-236x300.png)
 
 OSI Layer 1 - Physical
 ----------------------
@@ -35,7 +28,7 @@ node.**
 
 Format sebenarnya dari data pada “kabel” dapat bervariasi dengan setiap medium (perantara). Dalam kasus *Ethernet*, bit ditransfer dalam bentuk pulsa listrik (*electric pulses*)*.* Dalam kasus WiFi, bit ditransfer dalam bentuk gelombang radio. Dalam kasus *Fiber Optic*, bit ditransfer dalam bentuk pulsa cahaya (*light pulses*).
 
-\<simpan gambar\>
+<img title="" src="file:///D:/2-my-file-course/git/IT-Book-Summary/Catatanku/networkin%20image/packtrav-physical-wires.png" alt="" width="346" data-align="center">
 
 Selain kabel fisik, *Repeater* dan *Hub* juga beroperasi pada lapisan ini.
 
@@ -59,7 +52,7 @@ NIC WiFi kita bekerja dengan cara yang sama, menerima dan mentransmisikan gelomb
 
 Ada sistem pengalamatan (*addressing*) yang ada di Layer 2 yang dikenal sebagai *Media Access Control address* , atau MAC *address*. MAC *address* secara unik mengidentifikasi setiap NIC individual. Setiap NIC telah dikonfigurasi sebelumnya dengan alamat MAC oleh produsen; pada kenyataanya, terkadang disebut sebagai *Burned In Address* (BIA).
 
-\<tambahkan gambar\>
+<img title="" src="file:///D:/2-my-file-course/git/IT-Book-Summary/Catatanku/networkin%20image/packtrav-nics-and-switches.png" alt="" data-align="center" width="358">
 
 Selain NIC kita, *Switch* juga beroperasi pada lapisan ini. **Tanggung jawab utama Switch adalah untuk memfasilitasi komunikasi dalam Jaringan** (lihat di sini).
 
@@ -73,11 +66,7 @@ OSI Layer 3-Network
 Ini dilakukan dengan menggunakan skema pengalamatan lain yang secara logis dapat
 mengidentifikasi setiap node yang terhubung ke Internet. Skema pengalamatan ini dikenal sebagai *Internet Protocol address*, atau **IP Address**.
 
-Hal ini dianggap logis karena alamat IP bukan merupakan identifikasi permanen dari sebuah komputer. Berbeda dengan alamat MAC yang dianggap sebagai alamat fisik, alamat IP tidak dipasang ke perangkat keras komputer mana pun oleh pabrikan (*manufacturer*)*.*
-
-\<letakkan gambar\>
-
-*Router* (jamak) adalah perangkat jaringan (*Network devices*) yang beroperasi pada Layer 3 OSI model. Peran utama *Router* adalah memfasilitasi komunikasi antar jaringan. Dengan demikian, *Router* menciptakan batas antara dua jaringan. Untuk berkomunikasi dengan perangkat apa pun yang tidak secara langsung di jaringan kita, *router* harus digunakan.
+Hal ini dianggap logis karena alamat IP bukan merupakan identifikasi permanen dari sebuah komputer. Berbeda dengan alamat MAC yang dianggap sebagai alamat fisik, alamat IP tidak dipasang ke perangkat keras komputer mana pun oleh pabrikan (*manufacturer*)*.*<img title="" src="file:///D:/2-my-file-course/git/IT-Book-Summary/Catatanku/networkin%20image/packtrav-router.png" alt="" width="170" data-align="center">*Router* (jamak) adalah perangkat jaringan (*Network devices*) yang beroperasi pada Layer 3 OSI model. Peran utama *Router* adalah memfasilitasi komunikasi antar jaringan. Dengan demikian, *Router* menciptakan batas antara dua jaringan. Untuk berkomunikasi dengan perangkat apa pun yang tidak secara langsung di jaringan kita, *router* harus digunakan.
 
 OSI Model - Layer 2 vs. Layer 3
 -------------------------------
@@ -96,7 +85,7 @@ IP Header dan Data kemudian dienkapsulasi lebih lanjut dalam MAC *address header
 
 Berikut adalah ilustrasi untuk mengarahkan titik ini ke *home*:
 
-\<gif ada di sini\>
+<img src="file:///D:/2-my-file-course/git/IT-Book-Summary/Catatanku/networkin%20image/packtrav-l2-vs-l3%20(1).gif" title="" alt="" data-align="center">
 
 Perhatikan di antara setiap *Router*, MAC *address header* dihapus dan dibuat ulang untuk mebawanya ke hop berikutnya. IP Header yang dihasilkan oleh komputer pertama hanya dihapus oleh komputer terakhir, oleh karena itu IP *header* menangani pengiriman “*end to end*”, dan masing-masing dari empat MAC *header* berbeda yang terlibat dalam animasi ini menangani pengiriman “*hop to hop*”.
 
@@ -109,7 +98,7 @@ Di waktu tertentu pada komputer pengguna mungkin ada *browser* Internet yang ter
 
 Sesuatu harus ada untuk membedakan mana 1 dan 0 milik *messenger* atau *browser* atau musik *streaming*. “Sesuatu” itu adalah Layer 4:
 
-\<gambar di sini\>
+<img title="" src="file:///D:/2-my-file-course/git/IT-Book-Summary/Catatanku/networkin%20image/packtrav-layer-4-1024x555.png" alt="" width="310" data-align="center">
 
 **Layer 4 mengerjakan ini dengan menggunakan skema pengalamatan (addressing
 scheme) yang dikenal sebagai Port Numbers.**
@@ -146,7 +135,7 @@ Saat data diserahkan dari *layer to layer*, setiap *layer* menambahkan informasi
 
 Di sisi penerima, setiap *layer* menghapus *header* dari data dan meneruskannya kembali ke tumpukkan (*stack*) *Application layer*. Berikut adalah seluruh proses dalam tindakan:
 
-\<taruh gif di sini\>
+<img title="" src="file:///D:/2-my-file-course/git/IT-Book-Summary/Catatanku/networkin%20image/packtrav-encap-decap.gif" alt="" data-align="center" width="474">
 
 Perhatikan bahwa ini hanya sebuah contoh. *Header* yang akan ditambahkan akan tergantung pada protokol komunikasi yang mendasarinya. Misalnya, UDP *header* mungkin ditambahkan di Layer 4 sebagai gantinya, atau header IPv6 mungkin ditambahkan di Layer 3.
 
@@ -207,8 +196,7 @@ Switch
 
 Satu *Switch* beroperasi dengan mempertahankan apa yang dikenal sebagai **MAC Address table**. Ini adalah tabel yang memetakan MAC *address* perangkat yang dicolokkan ke setiap *switch port*. *Switch* tipikal memiliki banyak port, dari 24 hingga 48, hingga 96, atau lebih.
 
-MAC Address Table diisi dengan melihat bidang MAC *address* Sumber dari setiap
-*frame* yang diterima.
+*MAC Address Table* diisi dengan melihat bidang MAC *address* Sumber dari setiap *frame* yang diterima.
 
 Untuk meneruskan *frame*, *Switch* akan mencari MAC *address* Tujuan (*destination*) di Tabel MAC *address*-nya untuk menentukan port yang akan digunakan.
 
@@ -316,6 +304,98 @@ Kita juga membahas tiga tabel berbeda yang digunakan untuk menyimpan pemetaan (*
 
 - Semua L3 *devices* menggunakan ARP *Table* yang merupakan pemetaan / *mapping* IP *Address* ke MAC *address*.
 
-
-
 # Host to Host Communication
+
+Karena tidak ada Router dalam ilustrasi ini, kita tahu semua komunikasi terjadi dalam jaringan yang sama - oleh karena itu, Host A dan Host B keduanya dikonfigurasi dengan alamat IP yang dimiliki jaringan yang sama.
+
+<gambar di sini>
+
+Setiap host memiliki IP *address* dan MAC *address* yang unik. Karena setiap host juga merupakan L3 *device*, masing-masing  juga memiliki ARP *Table*. Saat ini, ARP *Table* nya kosong.
+
+Host A memulai dengan menghasilkan beberapa Data untuk Host B. Host A mengetahui tujuan akhir untuk data ini adalah alamat IP 10.10.10.20 (Host B). Host A juga mengetahui alamatnya sendiri (10.10.10.10) dan dengan demikian  dapat membuat L3 *header* dengan IP *address* Sumber dan Tujuan yang diperlukan.
+
+Tapi seperti yang kita pelajari sebelumnya, pengiriman paket adalah tugas Layer 2, jadi meskipun host ini terhubung langsung satu sama lain, L2 *header* harus dibuat.
+
+Sumber (*source*) dari L2 *header* akan menjadi MAC *address* Host A (aaaa.aaaa.aaaa). Tujuan dari L2 *header* harus menjadi MAC *address* Host B, tetapi saat ini, Host A tidak memiliki entri di ARP *table* untuk IP *address* Host B, dan oleh karena itu, MAC *address* Host B tidak diketahui.
+
+Akibatnya, Host A tidak dapat membuat L2 *header* yang tepat untuk mengirimkan paket ke NIC Host B saat ini. Host A harus memulai ARP *Request* supaya mendapatkan informasi yang hilang:
+
+<gambar di sini>
+
+ARP *Request* adalah satu paket yang pada dasarnya menanyakan: "Jika ada seseorang di luar sana dengan IP 10.10.10.20, kirimkan saya MAC *address* Anda."
+
+Ingat, saat ini Host A tidak tahu apakah Host B ada. Faktanya, Host A tidak tahu bahwa itu terhubung langsung ke Host B. Oleh karena itu, pertanyaannya ditujukan kepada semua orang di link tersebut. **ARP *request* dikirim sebagai *Broadcast***, dan jika ada host lain yang terhubung ke link ini, dan jika ada host lain yang terhubung ke link ini, mereka juga akan menerima ARP *request*.
+
+Perhatikan juga bahwa Host A menyertakan MAC *address*-nya sendiri dalam ARP *request* itu sendiri. Ini memungkinkan Host B (jika ada) dengan mudah merespons langsung kembali ke Host A dengan informasi yang diminta.
+
+<gambar di sini>
+
+Menerima ARP *request* memungkinkan Host B mempelajari sesuatu. Yaitu, IP *address*  Host A adalah 10.10.10.10 dan MAC *address* yang terkait adalah aaaa.aaaa.aaaa. Perhatikan entri ini sekarang ditambahkan ke ARP *Table* Host B.
+
+Host B dapat menggunakan informasi baru ini untuk merespons langsung ke Host A. ARP *Response* dikirim sebagai pesan *Unicast*, yang langsung ditujukan ke Host A. Jika ada host lain di link ini, mereka tidak akan melihat ARP *Response.*
+
+ARP *Response* akan menyertakan informasi yang diminta Host A: IP *address* 10.10.10.20 dilayani oleh NIC dengan MAC *address* bbbb.bbbb.bbbb. Host A akan menggunakan informasi ini untuk mengisi ARP *Table*-nya:
+
+<gambar di sini>
+
+Dengan ARP *Table* Host A yang terisi, Host A sekarang dapat sukses menyusun L2 *header* yang tepat untuk membawa paket ke Host B.
+
+Ketika Host B mendapatkan data, ia akan dapat merespons tanpa basa-basi lagi, karena sudah memiliki pemetaan (*mapping*) di ARP *Table* untuk Host A.
+
+## Summary
+
+Sekali lagi, jarang ditemukan dua host yang terhubung langsung satu sama lain. Tetapi memahami apa yang diperlukan untuk mendapatkan paket dari satu Host ke Host lain adalah kunci untuk memahami bagaimana *Switch* memungkinkan komunikasi *multi-host*, atau Router memungkinkan komunikasi *multi-network*. Kedua hal ini akan menajdi pokok bahasan artikel berikutnya.
+
+Hal utama yang perlu diperhatikan adalah *host tidak tahu apakah itu terhubung ke switch atau langsung ke host lain*. Dalam kedua kasus tersebut, host akan mengikuti proses yang diuraikan di atas saat mencoba berkomunikasi dengan host lain. 
+
+# Host to Host through a Switch
+
+Kita akan mulai dengan melihat masing-masing fungsi *switch*, dan kemudian melihat animasi yang menunjukkan operasi kolaboratifnya.
+
+## Switch Functions
+
+*Switch* pada dasarnya memiliki empat fungsi: [*Learning*](#learning), [*Flooding*](#flooding),[ *Forwarding*](#forwarding), dan [*Filtering*](#filtering):
+
+### Learning
+
+Menjadi *device* Layer 2 , *Switch* akan membuat semua keputusannya berdasarkan informasi yang ditemukan di L2 *Header*. Secara khusus, *Switch* akan menggunakan MAC *address* Sumber (*source*) dan MAC *address* Tujuan (*destination*) untuk membuat keputusan *forwarding*.
+
+Salah satu tujuan *Switch* adalah membuat **MAC Address Table**, memetakan / *mapping* setiap *switchports*-nya ke MAC *address* dari perangkat yang terhubung.
+
+MAC *address Table* mulai kosong, dan setiap kali *Switch* menerima sesuatu, ia memantau bidang MAC *address* Sumber dari *frame* yang masuk. Itu menggunakan MAC Sumber dan *switchport* tempat *frame* diterima untuk membuat entri / masukkan di  MAC *Address Table*.
+
+Cepat atau lambat, karena setiap perangkat yang terhubung pasti mengirimkan sesuatu, *Switch* akan memiliki MAC *Address Table* yang terisi penuh. Tabel ini kemudian dapat digunakan untuk meneruskan *frame* dengan cerdas ke tujuan (*destinantion*) yang diinginkan. 
+
+### Flooding
+
+Bagaimanapun, terlepas dari proses pembelajaran (*learning*) di atas, tidak dapat dihindari bahwa *Switch* pada titik tertentu akan menerima *frame* yang ditujukan ke MAC *address* yang lokasinya tidak diketahui oleh *Switch*.
+
+Dalam kasus seperti itu, satu-satunya opsi *Switch* adalah dengan hanya menduplikasi *frame* dan mengirimkannya ke semua port. Tindakan ini dikenal sebagai *flooding*.
+
+*Flooding* memastikan bahwa jika perangkat yang dimaksud ada dan jika terhubung ke *Switch*, perangkat pasti akan menerima *frame*.
+
+Tentu saja, begitu juga setiap perangkat lain atau *device* lain yang terhubung ke *Switch* tersebut. Dan meskipun tidak ideal, ini sangat normal. NIC dari setiap perangkat yang terhubung akan menerima *frame* dan memantau bidang MAC *address* Tujuan. Jika mereka bukan penerima yang dituju, mereka sederhananya akan diam-diam membuang *frame*.
+
+Namun, jika itu adalah perangkat yang dimaksud, *Switch* dapat merasa puas mengetahui bahwa ia dapat mengirimkan *frame* dengan sukses.
+
+Selain itu, saat perangkat yang dimaksud menerima *frame*, respons akan dibuat, yang saat dikirim ke *Switch* akan memungkinkan *switch* untuk mempelajari dan membuat MAC *Address Table* yang memetakan perangkat yang tidak dikenal ke *switchport*-nya.
+
+### Forwarding
+
+Idealnya, tentu saja, *Switch* akan memiliki entri di MAC *Address Table*-nya untuk setiap MAC *Destination* yang ditemuinya.
+
+Saat ini terjadi, *Switch* dengan senang hati akan meneruskan *frame out* dari*switchport* yang sesuai. 
+
+Ada tiga metode dimana *Switch* dapat meneruskan *frame*. Ini dijelaskan secara singkat di bawah ini.
+
+- **Store and Forward / Simpan dan Teruskan** - *Switch* menyalin seluruh *frame* (*header* + data) ke dalam *memory buffer* dan memeriksa kesalahan *frame* sebelum meneruskannya. Metode ini adalaah yang paling lambat, tetapi memungkinkan deteksi kesalahan terbaik dan fitur tambahan seperti memprioritaskan jenis *traffic* tertentu untuk pemrosesan yang lebih cepat.
+
+- **Cut Through** - *Switch* tidak menyimpan apa pun, dan hanya memeriksa minimal yang diperlukan (*minimum required*) untuk membaca MAC *address* Tujuan dan meneruskan *frame*. Metode ini adalah yang tercepat, tetapi tidak memberikan deteksi kesalahan atau potensi fitur tambahan.
+
+- **Fragment Free** - Metode ini merupakan campuran dari kedua metode sebelumnya. *Switch* hanya memeriksa bagian pertama dari *frame* (64 byte) sebelum meneruskan *frame*. Jika terjadi kesalahan transmisi, biasanya terlihat dalam 64 byte pertama. Dengan demikian, metode ini memberikan deteksi kesalahan yang "cukup baik", sambil mendapatkan kecepatan dan efisiensi untuk menghindari penyimpanan seluruh *frame* dalam memorinya sebelum meneruskannya.
+
+[linknya](https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/)
+
+
+
+## Filtering
