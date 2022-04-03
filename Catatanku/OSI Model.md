@@ -394,8 +394,56 @@ Ada tiga metode dimana *Switch* dapat meneruskan *frame*. Ini dijelaskan secara 
 
 - **Fragment Free** - Metode ini merupakan campuran dari kedua metode sebelumnya. *Switch* hanya memeriksa bagian pertama dari *frame* (64 byte) sebelum meneruskan *frame*. Jika terjadi kesalahan transmisi, biasanya terlihat dalam 64 byte pertama. Dengan demikian, metode ini memberikan deteksi kesalahan yang "cukup baik", sambil mendapatkan kecepatan dan efisiensi untuk menghindari penyimpanan seluruh *frame* dalam memorinya sebelum meneruskannya.
 
-[linknya](https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/)
-
-
+Perlu ditunjukkan bahwa ketiga metode ini pada satu titik sangat signifikan ketika teknologi *Switch* masih baru dan peralihan menyebabkan latensi yang nyata. Di zaman modern, dengan peralihan kecepatan jalur, perbedaan kecepatan antara ketiganya dapat diabaikan, dan sebagian besar sakelar beroperasi dalam mode *Save and Forward*.
 
 ## Filtering
+
+Dan yang terakhir, fungsi terakhir dari *switch* adalah *filtering*. Terutama, fungsi ini menyatakan bahwa *Switch* tidak akan pernah meneruskan *frame* kembali ke port yang sama yang menerima *frame*.
+
+Paling umum, ini terjadi ketika *Switch* perlu membanjiri (*flooding*) *frame* - *frame* akan diduplikasi dan dikirim ke setiap *switchport* kecuali *switchport* yang menerima *frame*.
+
+Jarang sebuah host akan mengirim *frame* dengan MAC *address* tujuan itu sendiri. Ini biasanya host yang mengalami semacam kondisi *error* atau menjadi jahat. Bagaimanapun juga, ketika ini terjadi, *Switch* hanya membuang *frame*.
+
+## Switch Operation
+
+Sekarang setelah kita melihat masing-masing fungsi individual dari sebuah *Switch*, kita dapat melihat aksinya. Animasi di bawah ini mencakup *Switch* yang menjalankan keempat fungsi saat memproses *traffic*.
+
+Biasanya, host dalam animasi di bawah ini perlu melakukan ARP *resolution*, tetapi demi fokus pada operasi *Switch*, kita akan menghilangkan ARP dan melanjutkan seolah-olah semua host sudah mengetahui IP *address* dan MAC masing-masing.
+
+<gambar di sini>
+
+Host A memiliki "sesuatu" untuk dikirim ke Host B. Isi dari "sesuatu" sama sekali tidak relevan, asalkan dipahami bahwa *frame* memiliki *header* L2 yang menyertakan MAC *address* Sumber dan Tujuan.
+
+Awalnya, MAC *Address table* *Switch* kosong. Ingat, itu hanya terisi ketika sebuah *frame* diterima. 
+
+Ketika Hast A mengirim *frame* ke *Switch*, itu termasuk MAC *address* Sumber aaaa.aaaa.aaaa. Ini meminta *Switch* untuk mempelajari entri MAC *Address Table* yang memetakan / *mapping* Port 1 ke MAC *address* aaaa.aaaa.aaaa.
+
+Kemudian, ketika memutuskan bagaimana meneruskan *frame*, *Switch* menyadari bahwa tidak ada entri untuk bbbb.bbbb.bbbb. Ini membuat *Switch*
+
+ hanya satu pilihan: *duplicate* dan ***flood*** *frame* keluar dari semua port. Perhatikan bahwa *frame* diduplikasi di semua port, keculai Port 1 (port yang digunakan untuk masuk) - ini adalah contoh *Switch* yang menjalankan fungsi pemfilteran (**filtering**).
+
+*Frame* ini kemudian akan diterima oleh Host C dan Host B. Host C, ketika memeriksa *header* L2 akan menyadari bahwa *frame* tidak ditujukan untuknya dan akan membuangnya begitu saja. Sebaliknya, ketika Host B menerima *frame* dan menyadari bahwa mereka memang penerima yang dimaksud, itu akan menerima *frame* dan menghasilkan respons.
+
+Saat respons tiba di *Switch*, pemetaan MAC *Address Table* lainnya dapat dipelajari: Port 2 berisi MAC *address* bbbb.bbbb.bbbb.
+
+Kemudian *Switch* mencari MAC *address* Tujuan (aaaa.aaaa.aaaa) dan menyadari alamat / *address* ini ada di luar Port 1. *Switch* kemudian dapat meneruskan *frame*, karena mengetahui lokasi MAC *address* Tujuan.
+
+> Animasi di atas menggambarkan empat fungsi *Switch* pada *Switch* tunggal. Untuk melihat bagaimana proses menskalakan ke beberapa *Switch*, [lihat artikel ini](https://goo-gl.me/mqOUv).
+
+## Broadcasts
+
+Seringkali ada beberapa kebingungan tentang *Switch* sehubungan dengan *broadcast* dan perilaku *flooding* *Switch*. Kebingungan itu bisa dimengerti, karena hasil akhirnya sama, tetapi penting juga untuk memahami perbedaannya. 
+
+**Frame Broadcast adalah frame yang ditujukan kepada *semua orang* di jaringan lokal**. Ini dilakukan dengan menggunakan *Ethernet header* yang sama yang  telah kita diskusikan, kecuali bidang MAC *Address* Tujuan diisi dengan alamat khusus: ffff.ffff.ffff. Alamat "semua F" secara khusus dicadangkan untuk tujuan *broadcast*.
+
+Menurut definisi, jika *Switch* pernah menemukan paket dengan MAC tujuan ffff.ffff.ffff, itu akan selalu membanjiri (*flood*) *frame* (setelah mempelajari MAC Sumber, tentu saja).
+
+Cara lain untuk melihatnya, adalah karena alamat / *address* ffff.ffff.ffff dicadangkan, *Switch* tidak dapat mempelajari pemetaan MAC *Address Table* untuknya. Dengan demikian, setiap frame yang ditujukan ke MAC *address* ini akan selalu *flooded*.
+
+Singkatnya, *Broadcast* adalah *frame* yang ditujukan kepada semua orang di *local network* (ffff.ffff.ffff), dan *Flooding* adalah tindakan yang dapat dilakukan oleh *Switch*. *Broadcast frame*, menurut definisi, akan selalu dibanjiri / *flooded* oleh *Switch*. Tetapi *Switch* tidak akan pernah mem-*broadcast* sebuah *frame* (karena *broadcast* bukan fungsi *Switch*).
+
+> Artikel ini sengaja menghilangkan *Address Resolution Protocol* (ARP) untuk fokus murni pada tindakan *Switch*. ARP adalah fungsi dari klien, dan tidak akan pernah dilakukan oleh switch itu sendiri. Diasumsikan bahwa klien dalam animasi di atas sudah mengetahui alamat MAC masing-masing.
+
+
+
+# Host to Host through a Router
